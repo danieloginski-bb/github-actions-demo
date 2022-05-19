@@ -27,16 +27,10 @@ jobs:
     - name: Get version from POM
       run: |
         VERSION_PARTS=($(mvn help:evaluate -Dexpression=project.version -q -DforceStdout | tr "-" "\n"))
-        echo ${VERSION_PARTS[0]} | tr "." "\n"
-        echo ${VERSION_PARTS[1]} | tr -dc '0-9'
-        
-        echo "VERSIONS"
-        echo "${VERSION_PARTS[0]}"
-        echo "${VERSION_PARTS[1]}"
-        
+      
         echo "PREFIX & SUFFIX"
-        echo "PREFIX=(${VERSION_PARTS[0]} | tr "." "\n")" >> $GITHUB_ENV
-        echo "SUFFIX=(${VERSION_PARTS[1]} | tr -dc '0-9')" >> $GITHUB_ENV
+        echo "PREFIX=$(echo ${VERSION_PARTS[0]} | tr "." "\n")" >> $GITHUB_ENV
+        echo "SUFFIX=$(echo ${VERSION_PARTS[1]} | tr -dc '0-9')" >> $GITHUB_ENV
         
         
         echo "\n PREFIX"
