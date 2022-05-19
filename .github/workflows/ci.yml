@@ -40,9 +40,9 @@ jobs:
         
         
         echo "\n PREFIX"
-        echo "${PREFIX[0]}"
-        echo "${PREFIX[1]}"
-        echo "${PREFIX[2]}"
+        echo "$((PREFIX[0]))"
+        echo "$((PREFIX[1]))"
+        echo "$((PREFIX[2]))"
         
         echo "MAJOR=$((PREFIX[0]))" >> $GITHUB_ENV
         echo "MINOR=$((PREFIX[1]))" >> $GITHUB_ENV
