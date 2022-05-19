@@ -43,13 +43,8 @@ jobs:
         echo "PREFIX & SUFFIX"
         echo "${VERSIONS_1}"
         echo "PREFIX=${VERSIONS_1}" >> $GITHUB_ENV
-        echo "SUFFIX=${VERSIONS_1}" >> $GITHUB_ENV
-        
-        
-        echo "\n PREFIX"
-        echo "${PREFIX[0]}"
-        echo "${PREFIX[1]}"
-        echo "${PREFIX[2]}"
+        echo "SUFFIX=${VERSIONS_2}" >> $GITHUB_ENV
+      
         
         echo "MAJOR=${PREFIX[0]}" >> $GITHUB_ENV
         echo "MINOR=${PREFIX[1]}" >> $GITHUB_ENV
