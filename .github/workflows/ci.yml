@@ -29,8 +29,8 @@ jobs:
         VERSION_PARTS=($(mvn help:evaluate -Dexpression=project.version -q -DforceStdout | tr "-" "\n"))
 
   
-        VERSIONS_1=${VERSION_PARTS[0]} | tr "." "\n"
-        VERSIONS_2=${VERSION_PARTS[1]} | tr -dc '0-9'
+        VERSIONS_1=(${VERSION_PARTS[0]} | tr "." "\n")
+        VERSIONS_2=(${VERSION_PARTS[1]} | tr -dc '0-9')
         
         echo "-------"
         echo "${VERSIONS_1[0]}"
