@@ -33,9 +33,9 @@ jobs:
         VERSIONS_2=${VERSION_PARTS[1]} | tr -dc '0-9'
         
         echo "PREFIX & SUFFIX"
-        echo ${VERSION_1}
-        echo "PREFIX=${VERSION_1}" >> $GITHUB_ENV
-        echo "SUFFIX=${VERSION_2}" >> $GITHUB_ENV
+        echo ${VERSIONS_1}
+        echo "PREFIX=${VERSIONS_1}" >> $GITHUB_ENV
+        echo "SUFFIX=${VERSIONS_1}" >> $GITHUB_ENV
         
         
         echo "\n PREFIX"
