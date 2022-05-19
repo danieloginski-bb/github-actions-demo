@@ -36,7 +36,7 @@ jobs:
         echo "BUILD=${SUFFIX[0]}" >> $GITHUB_ENV
 
     - name: Setup PR version
-      if: contains(github.ref, '/pull/')
+#      if: contains(github.ref, '/pull/')
       run: |
         NEW_VERSION="${MAJOR}.${MINOR}.${PATCH}-build${BUILD+1}"
         echo "NEW_VERSION=${NEW_VERSION}" >> $GITHUB_ENV
