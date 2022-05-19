@@ -30,7 +30,7 @@ jobs:
 
   
         VERSIONS_1=`echo "${VERSION_PARTS[0]}" | tr "." "\n"`
-        VERSIONS_2=${VERSION_PARTS[1]} | tr -dc '0-9'
+        VERSIONS_2=`echo ${VERSION_PARTS[1]} | tr -dc '0-9'`
         
         echo "-------"
         echo "${VERSIONS_1[0]}"
