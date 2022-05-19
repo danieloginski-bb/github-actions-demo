@@ -31,12 +31,12 @@ jobs:
         VERSIONS_1=`echo "${VERSION_PARTS[0]}" | tr "." "\n"`
         VERSIONS_2=`echo ${VERSION_PARTS[1]} | tr -dc '0-9'`
         
-        echo "${VERSIONS_1[0]}"
-        echo "${VERSIONS_1[1]}"
-        echo "${VERSIONS_1[2]}"
+        echo "MAJOR=${VERSIONS_1[0]}" >> $GITHUB_ENV
+        echo "MINOR=${VERSIONS_1[1]}" >> $GITHUB_ENV
+        echo "PATCH=${VERSIONS_1[2]}" >> $GITHUB_ENV
 
         echo "--------"
-        echo "${VERSIONS_2}"
+        echo "BUILD=${VERSIONS_2}" >> $GITHUB_ENV
 
 #        echo "PREFIX & SUFFIX"
 #        echo "${VERSIONS_1}"
