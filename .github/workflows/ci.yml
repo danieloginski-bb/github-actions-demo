@@ -44,7 +44,7 @@ jobs:
         echo "MAJOR=${PREFIX[0]}" >> $GITHUB_ENV
         echo "MINOR=${PREFIX[1]}" >> $GITHUB_ENV
         echo "PATCH=${PREFIX[2]}" >> $GITHUB_ENV
-        echo "BUILD=${SUFFIX[0]}" >> $GITHUB_ENV
+        echo "BUILD=${SUFFIX}" >> $GITHUB_ENV
 
     - name: Setup PR version
 #      if: contains(github.ref, '/pull/')
