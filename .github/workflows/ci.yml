@@ -36,7 +36,7 @@ jobs:
         echo "${VERSIONS_1[0]}"
         echo "${VERSIONS_1[1]}"
         echo "${VERSIONS_1[2]}"
-        echo "${VERSIONS_2[0]}"
+        echo "${VERSIONS_2}"
         echo "-------"
         
         
