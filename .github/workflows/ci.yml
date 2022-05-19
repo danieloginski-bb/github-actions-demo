@@ -30,15 +30,15 @@ jobs:
         echo "PREFIX=(${VERSION_PARTS[0]} | tr "." "\n")" >> $GITHUB_ENV
         echo "SUFFIX=(${VERSION_PARTS[1]} | tr -dc '0-9')" >> $GITHUB_ENV
         
-        echo "MAJOR=${PREFIX[0]}" >> $GITHUB_ENV
-        echo "MINOR=${PREFIX[1]}" >> $GITHUB_ENV
-        echo "PATCH=${PREFIX[2]}" >> $GITHUB_ENV
-        echo "BUILD=${SUFFIX[0]}" >> $GITHUB_ENV
+        echo "MAJOR=$((PREFIX[0]))" >> $GITHUB_ENV
+        echo "MINOR=$((PREFIX[1]))" >> $GITHUB_ENV
+        echo "PATCH=$((PREFIX[2]))" >> $GITHUB_ENV
+        echo "BUILD=$((SUFFIX[0]))" >> $GITHUB_ENV
 
     - name: Setup PR version
 #      if: contains(github.ref, '/pull/')
       run: |
-        NEW_VERSION="${MAJOR}.${MINOR}.${PATCH}-build${BUILD+1}"
+        NEW_VERSION="$((MAJOR)).$((MINOR)).$((PATCH))-build$((BUILD+1))"
         echo "NEW_VERSION=${NEW_VERSION}" >> $GITHUB_ENV
     - name: Update POM Version
       run: |
