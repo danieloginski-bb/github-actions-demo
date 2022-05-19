@@ -35,6 +35,9 @@ jobs:
         echo "${VERSIONS_1[1]}"
         echo "${VERSIONS_1[2]}"
 
+        echo "--------"
+        echo "${VERSIONS_2}"
+
 #        echo "PREFIX & SUFFIX"
 #        echo "${VERSIONS_1}"
 #        echo "PREFIX=${VERSIONS_1}" >> $GITHUB_ENV
