@@ -38,6 +38,12 @@ jobs:
         echo "PREFIX=(${VERSION_PARTS[0]} | tr "." "\n")" >> $GITHUB_ENV
         echo "SUFFIX=(${VERSION_PARTS[1]} | tr -dc '0-9')" >> $GITHUB_ENV
         
+        
+        echo "\n PREFIX"
+        echo "${PREFIX[0]}"
+        echo "${PREFIX[1]}"
+        echo "${PREFIX[2]}"
+        
         echo "MAJOR=$((PREFIX[0]))" >> $GITHUB_ENV
         echo "MINOR=$((PREFIX[1]))" >> $GITHUB_ENV
         echo "PATCH=$((PREFIX[2]))" >> $GITHUB_ENV
