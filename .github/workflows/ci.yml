@@ -42,6 +42,11 @@ jobs:
       run: |
         NEW_VERSION="$((MAJOR)).$((MINOR)).$((PATCH))-build$((BUILD+1))"
         echo "NEW_VERSION=${NEW_VERSION}" >> $GITHUB_ENV
+    - name: Setup major version
+      if: "contains(github.ref, 'master') && !contains(github.event.head_commit.message, 'bump major')"
+      run: |
+        NEW_VERSION="$((MAJOR+1)).$((MINOR)).$((PATCH))-build1"
+        echo "NEW_VERSION=${NEW_VERSION}" >> $GITHUB_ENV
     - name: Update POM Version
       if: "contains(github.ref, 'master')"
       run: |
