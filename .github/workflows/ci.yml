@@ -26,7 +26,7 @@ jobs:
       run: mvn -B package --file pom.xml
     - name: Get version from POM
       run: |
-        echo VERSION_PARTS=($(mvn help:evaluate -Dexpression=project.version -q -DforceStdout | tr "-" "\n"))
+        echo "VERSION_PARTS=($(mvn help:evaluate -Dexpression=project.version -q -DforceStdout | tr "-" "\n"))"
 
         echo VERSIONS_1=`echo ${VERSION_PARTS[0]} | tr "." "\n"`
         echo VERSIONS_2=`echo ${VERSION_PARTS[1]} | tr -dc '0-9'`
