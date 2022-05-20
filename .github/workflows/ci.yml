@@ -25,30 +25,25 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Get version from POM
+      if: "contains(github.ref, 'master')"
       run: |
-        VERSION_PARTS=($(mvn help:evaluate -Dexpression=project.version -q -DforceStdout | tr "-" "\n"))
+        VERSION=($(mvn help:evaluate -Dexpression=project.version -q -DforceStdout | tr "-" "\n"))
 
-        echo "${VERSION_PARTS[0]}"
-        echo "${VERSION_PARTS[1]}"
-
-        VERSIONS_1=( $(echo ${VERSION_PARTS[0]} | tr "." "\n") )
-        VERSIONS_2=`echo ${VERSION_PARTS[1]} | tr -dc '0-9'`
-        
-        echo "${VERSIONS_1[0]}"
-        echo "${VERSIONS_1[1]}"
-        echo "${VERSIONS_1[2]}"
-        
-        echo "MAJOR=${VERSIONS_1[0]}" >> $GITHUB_ENV
-        echo "MINOR=${VERSIONS_1[1]}" >> $GITHUB_ENV
-        echo "PATCH=${VERSIONS_1[2]}" >> $GITHUB_ENV 
-        echo "BUILD=${VERSIONS_2}" >> $GITHUB_ENV
+        VERSION_1=( $(echo ${VERSION[0]} | tr "." "\n") )
+        VERSION_2=`echo ${VERSION[1]} | tr -dc '0-9'`
+    
+        echo "MAJOR=${VERSION_1[0]}" >> $GITHUB_ENV
+        echo "MINOR=${VERSION_1[1]}" >> $GITHUB_ENV
+        echo "PATCH=${VERSION_1[2]}" >> $GITHUB_ENV 
+        echo "BUILD=${VERSION_2}" >> $GITHUB_ENV
 
     - name: Setup PR version
-#      if: contains(github.ref, '/pull/')
+      if: "contains(github.ref, 'master')"
       run: |
         NEW_VERSION="$((MAJOR)).$((MINOR)).$((PATCH))-build$((BUILD+1))"
         echo "NEW_VERSION=${NEW_VERSION}" >> $GITHUB_ENV
     - name: Update POM Version
+      if: "contains(github.ref, 'master')"
       run: |
         echo "New version  is: ${NEW_VERSION}"
         mvn versions:set versions:update-child-modules -DnewVersion=${NEW_VERSION} -DprocessAllModules -DgenerateBackupPoms=false
@@ -58,10 +53,7 @@ jobs:
         git config --local user.email "advanzia_bot@backbase.com"
         git config --local user.name "bb-advanzia-bot"
         git commit -m "[skip bump] version bump" -a
-#        git tag -a $NEW_VERSION -m "[version bump]"
     - name: Push changes
       if: "contains(github.ref, 'master')"
       uses: ad-m/github-push-action@master
-#      with:
-#        github_token: ${{ secrets.STREAM_BOT_TOKEN }}
 
