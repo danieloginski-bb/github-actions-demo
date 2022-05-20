@@ -52,4 +52,16 @@ jobs:
       run: |
         echo "New version  is: ${NEW_VERSION}"
         mvn versions:set versions:update-child-modules -DnewVersion=${NEW_VERSION} -DprocessAllModules -DgenerateBackupPoms=false
+    - name: Commit files
+      if: "contains(github.ref, 'master')"
+      run: |
+        git config --local user.email "advanzia_bot@backbase.com"
+        git config --local user.name "bb-advanzia-bot"
+        git commit -m "[skip bump] version bump" -a
+#        git tag -a $NEW_VERSION -m "[version bump]"
+    - name: Push changes
+      if: "contains(github.ref, 'master')"
+      uses: ad-m/github-push-action@master
+#      with:
+#        github_token: ${{ secrets.STREAM_BOT_TOKEN }}
 
