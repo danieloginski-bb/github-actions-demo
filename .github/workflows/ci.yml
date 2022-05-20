@@ -43,23 +43,6 @@ jobs:
         echo "PATCH=${VERSIONS_1[2]}" >> $GITHUB_ENV 
         echo "BUILD=${VERSIONS_2}" >> $GITHUB_ENV
 
-#
-#        echo "MAJOR=${VERSIONS_1[0]}" >> $GITHUB_ENV
-#        echo "MINOR=${VERSIONS_1[1]}" >> $GITHUB_ENV
-#        echo "PATCH=${VERSIONS_1[2]}" >> $GITHUB_ENV
-#        echo "BUILD=${VERSIONS_2}" >> $GITHUB_ENV
-
-#        echo "PREFIX & SUFFIX"
-#        echo "${VERSIONS_1}"
-#        echo "PREFIX=${VERSIONS_1}" >> $GITHUB_ENV
-#        echo "SUFFIX=${VERSIONS_2}" >> $GITHUB_ENV
-#
-#
-#        echo "MAJOR=${PREFIX[0]}" >> $GITHUB_ENV
-#        echo "MINOR=${PREFIX[1]}" >> $GITHUB_ENV
-#        echo "PATCH=${PREFIX[2]}" >> $GITHUB_ENV
-#        echo "BUILD=${SUFFIX}" >> $GITHUB_ENV
-
     - name: Setup PR version
 #      if: contains(github.ref, '/pull/')
       run: |
