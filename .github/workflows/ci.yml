@@ -31,8 +31,8 @@ jobs:
         echo "${VERSION_PARTS[0]}"
         echo "${VERSION_PARTS[1]}"
 
-        echo VERSIONS_1=$(`echo ${VERSION_PARTS[0]} | tr "." "\n"`)
-        echo VERSIONS_2=$(`echo ${VERSION_PARTS[1]} | tr -dc '0-9'`)
+        echo VERSIONS_1="${VERSION_PARTS[0]} | tr "." "\n""
+        echo VERSIONS_2=`echo ${VERSION_PARTS[1]} | tr -dc '0-9'`
         
         echo "${VERSIONS_1[0]}"
 #
