@@ -28,14 +28,14 @@ jobs:
       run: |
         VERSION_PARTS=($(mvn help:evaluate -Dexpression=project.version -q -DforceStdout | tr "-" "\n"))
 
+        echo "${VERSION_PARTS[0]}"
         echo "${VERSION_PARTS[1]}"
-        echo "${VERSION_PARTS[2]}"
 
-        VERSIONS_1=( $(echo ${VERSION_PARTS[1]} | tr "." "\n") )
-        echo VERSIONS_2=`echo ${VERSION_PARTS[2]} | tr -dc '0-9'`
+        VERSIONS_1=( $(echo ${VERSION_PARTS[0]} | tr "." "\n") )
+        echo VERSIONS_2=`echo ${VERSION_PARTS[1]} | tr -dc '0-9'`
         
+        echo "${VERSIONS_1[0]}"
         echo "${VERSIONS_1[1]}"
-        echo "${VERSIONS_1[2]}"
 #
 #        echo "MAJOR=${VERSIONS_1[0]}" >> $GITHUB_ENV
 #        echo "MINOR=${VERSIONS_1[1]}" >> $GITHUB_ENV
