@@ -43,10 +43,10 @@ jobs:
         echo "PATCH=${VERSIONS_1[2]}"
         echo "BUILD=${VERSIONS_2}"
 
-        echo ${MAJOR} >> $GITHUB_ENV
-        echo ${MINOR} >> $GITHUB_ENV
-        echo ${PATCH} >> $GITHUB_ENV
-        echo ${BUILD} >> $GITHUB_ENV
+        echo "${MAJOR}" >> $GITHUB_ENV
+        echo "${MINOR}" >> $GITHUB_ENV
+        echo "${PATCH}" >> $GITHUB_ENV
+        echo "${BUILD}" >> $GITHUB_ENV
 #
 #        echo "MAJOR=${VERSIONS_1[0]}" >> $GITHUB_ENV
 #        echo "MINOR=${VERSIONS_1[1]}" >> $GITHUB_ENV
