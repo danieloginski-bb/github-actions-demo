@@ -29,13 +29,13 @@ jobs:
       run: |
         VERSION=($(mvn help:evaluate -Dexpression=project.version -q -DforceStdout | tr "-" "\n"))
 
-        VERSIONS_1=( $(echo ${VERSION[0]} | tr "." "\n") )
-        VERSIONS_2=`echo ${VERSION[1]} | tr -dc '0-9'`
+        VERSION_1=( $(echo ${VERSION[0]} | tr "." "\n") )
+        VERSION_2=`echo ${VERSION[1]} | tr -dc '0-9'`
     
-        echo "MAJOR=${VERSIONS_1[0]}" >> $GITHUB_ENV
-        echo "MINOR=${VERSIONS_1[1]}" >> $GITHUB_ENV
-        echo "PATCH=${VERSIONS_1[2]}" >> $GITHUB_ENV 
-        echo "BUILD=${VERSIONS_2}" >> $GITHUB_ENV
+        echo "MAJOR=${VERSION_1[0]}" >> $GITHUB_ENV
+        echo "MINOR=${VERSION_1[1]}" >> $GITHUB_ENV
+        echo "PATCH=${VERSION_1[2]}" >> $GITHUB_ENV 
+        echo "BUILD=${VERSION_2}" >> $GITHUB_ENV
 
     - name: Setup PR version
       if: "contains(github.ref, 'master')"
@@ -43,6 +43,7 @@ jobs:
         NEW_VERSION="$((MAJOR)).$((MINOR)).$((PATCH))-build$((BUILD+1))"
         echo "NEW_VERSION=${NEW_VERSION}" >> $GITHUB_ENV
     - name: Update POM Version
+      if: "contains(github.ref, 'master')"
       run: |
         echo "New version  is: ${NEW_VERSION}"
         mvn versions:set versions:update-child-modules -DnewVersion=${NEW_VERSION} -DprocessAllModules -DgenerateBackupPoms=false
