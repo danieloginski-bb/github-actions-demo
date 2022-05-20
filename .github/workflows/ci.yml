@@ -23,7 +23,7 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
-      run: mvn -B clean package
+      run: mvn -B package --file pom.xml
     - name: Get version from POM
       run: |
         VERSION_PARTS=($(mvn help:evaluate -Dexpression=project.version -q -DforceStdout | tr "-" "\n"))
@@ -33,7 +33,7 @@ jobs:
         
 #        echo "MAJOR=${VERSIONS_1[0]}" >> $GITHUB_ENV
 #        echo "MINOR=${VERSIONS_1[1]}" >> $GITHUB_ENV
-        echo "PATCH=${VERSIONS_1[2]}" >> $GITHUB_ENV
+#        echo "PATCH=${VERSIONS_1[2]}" >> $GITHUB_ENV
 #        echo "BUILD=${VERSIONS_2}" >> $GITHUB_ENV
 
 #        echo "PREFIX & SUFFIX"
