@@ -51,7 +51,6 @@
             <hotfixBranchPrefix>hotfix/</hotfixBranchPrefix>
             <supportBranchPrefix>support/</supportBranchPrefix>
             <origin>origin</origin>
-            <useSnapshotInDevVersion>false</useSnapshotInDevVersion>
           </gitFlowConfig>
           <useSnapshotInRelease>false</useSnapshotInRelease>
 <!--          <skipUpdateVersion>true</skipUpdateVersion>-->
