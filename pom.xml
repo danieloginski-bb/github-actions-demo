@@ -37,21 +37,20 @@
         <artifactId>spring-boot-maven-plugin</artifactId>
       </plugin>
       <plugin>
-        <groupId>external.atlassian.jgitflow</groupId>
-        <artifactId>jgitflow-maven-plugin</artifactId>
-        <version>1.0-m5.1</version>
+        <groupId>com.amashchenko.maven.plugin</groupId>
+        <artifactId>gitflow-maven-plugin</artifactId>
+        <version>1.18.0</version>
         <configuration>
-          <flowInitContext>
-            <masterBranchName>master</masterBranchName>
-            <developBranchName>development</developBranchName>
-            <featureBranchPrefix>feature-</featureBranchPrefix>
-            <releaseBranchPrefix>release-</releaseBranchPrefix>
-            <hotfixBranchPrefix>hotfix-</hotfixBranchPrefix>
-            <versionTagPrefix>version-</versionTagPrefix>
-          </flowInitContext>
-          <noDeploy>true</noDeploy>
-          <squash>true</squash>
-          <scmCommentPrefix>[RELEASE] </scmCommentPrefix>
+          <gitFlowConfig>
+            <productionBranch>master</productionBranch>
+            <developmentBranch>develop</developmentBranch>
+            <featureBranchPrefix>feature/</featureBranchPrefix>
+            <releaseBranchPrefix>release/</releaseBranchPrefix>
+            <hotfixBranchPrefix>hotfix/</hotfixBranchPrefix>
+            <supportBranchPrefix>support/</supportBranchPrefix>
+            <versionTagPrefix>[RELEASE] </versionTagPrefix>
+            <origin>origin</origin>
+          </gitFlowConfig>
         </configuration>
       </plugin>
     </plugins>
