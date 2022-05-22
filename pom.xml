@@ -52,7 +52,7 @@
             <origin>origin</origin>
           </gitFlowConfig>
           <useSnapshotInRelease>false</useSnapshotInRelease>
-          <skipUpdateVersion>true</skipUpdateVersion>
+<!--          <skipUpdateVersion>true</skipUpdateVersion>-->
         </configuration>
       </plugin>
     </plugins>
