@@ -16,6 +16,7 @@
   <description>github-actions-demo</description>
   <properties>
     <java.version>11</java.version>
+    <revision>1.0.2-build2</revision>
   </properties>
   <dependencies>
     <dependency>
