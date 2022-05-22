@@ -11,7 +11,7 @@
   </parent>
   <groupId>com.backbase</groupId>
   <artifactId>github-actions-demo</artifactId>
-  <version>1.0.2-build5</version>
+  <version>1.0.3</version>
   <name>github-actions-demo</name>
   <description>github-actions-demo</description>
   <properties>
