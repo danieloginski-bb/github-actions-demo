@@ -5,9 +5,9 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ master ]
+    branches: [ develop ]
   pull_request:
-    branches: [ master ]
+    branches: [ develop ]
 
 jobs:
   build:
@@ -25,7 +25,7 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Get version from POM
-      if: "contains(github.ref, 'master')"
+      if: "contains(github.ref, 'develop')"
       run: |
         VERSION=($(mvn help:evaluate -Dexpression=project.version -q -DforceStdout | tr "-" "\n"))
 
@@ -38,27 +38,27 @@ jobs:
         echo "BUILD=${VERSION_2}" >> $GITHUB_ENV
 
     - name: Setup PR version
-      if: "contains(github.ref, 'master')"
+      if: "contains(github.ref, 'develop')"
       run: |
         NEW_VERSION="$((MAJOR)).$((MINOR)).$((PATCH))-build$((BUILD+1))"
         echo "NEW_VERSION=${NEW_VERSION}" >> $GITHUB_ENV
     - name: Setup major version
-      if: "contains(github.ref, 'master') && contains(github.event.head_commit.message, 'bump major')"
+      if: "contains(github.ref, 'develop') && contains(github.event.head_commit.message, 'bump major')"
       run: |
         NEW_VERSION="$((MAJOR+1)).$((MINOR)).$((PATCH))-build1"
         echo "NEW_VERSION=${NEW_VERSION}" >> $GITHUB_ENV
     - name: Update POM Version
-      if: "contains(github.ref, 'master')"
+      if: "contains(github.ref, 'develop')"
       run: |
         echo "New version  is: ${NEW_VERSION}"
         mvn versions:set versions:update-child-modules -DnewVersion=${NEW_VERSION} -DprocessAllModules -DgenerateBackupPoms=false
     - name: Commit files
-      if: "contains(github.ref, 'master')"
+      if: "contains(github.ref, 'develop')"
       run: |
         git config --local user.email "advanzia_bot@backbase.com"
         git config --local user.name "bb-advanzia-bot"
         git commit -m "[skip bump] version bump" -a
     - name: Push changes
-      if: "contains(github.ref, 'master')"
-      uses: ad-m/github-push-action@master
+      if: "contains(github.ref, 'develop')"
+      uses: ad-m/github-push-action@develop
 
