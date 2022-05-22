@@ -50,8 +50,8 @@
             <supportBranchPrefix>support/</supportBranchPrefix>
             <versionTagPrefix></versionTagPrefix>
             <origin>origin</origin>
-            <useSnapshotInRelease>false</useSnapshotInRelease>
           </gitFlowConfig>
+          <useSnapshotInRelease>false</useSnapshotInRelease>
         </configuration>
       </plugin>
     </plugins>
