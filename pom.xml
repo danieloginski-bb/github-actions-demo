@@ -11,11 +11,12 @@
   </parent>
   <groupId>com.backbase</groupId>
   <artifactId>github-actions-demo</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.3</version>
   <name>github-actions-demo</name>
   <description>github-actions-demo</description>
   <properties>
     <java.version>11</java.version>
+    <revision>1.0.2-build2</revision>
   </properties>
   <dependencies>
     <dependency>
@@ -48,10 +49,10 @@
             <releaseBranchPrefix>release/</releaseBranchPrefix>
             <hotfixBranchPrefix>hotfix/</hotfixBranchPrefix>
             <supportBranchPrefix>support/</supportBranchPrefix>
-            <versionTagPrefix></versionTagPrefix>
             <origin>origin</origin>
           </gitFlowConfig>
           <useSnapshotInRelease>false</useSnapshotInRelease>
+<!--          <skipUpdateVersion>true</skipUpdateVersion>-->
         </configuration>
       </plugin>
     </plugins>
