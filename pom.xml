@@ -16,7 +16,7 @@
   <description>github-actions-demo</description>
   <properties>
     <java.version>11</java.version>
-    <revision>1.0.14-SNAPSHOT</revision>
+    <revision>1.0.15</revision>
     <changelist>-build1</changelist>
   </properties>
   <dependencies>
@@ -62,6 +62,7 @@
           <useSnapshotInRelease>false</useSnapshotInRelease>
           <preReleaseGoals>verify</preReleaseGoals>
           <postReleaseGoals>verify</postReleaseGoals>
+          <incrementVersionAtFinish>false</incrementVersionAtFinish>
 
           <commitMessages>
             <featureStartMessage>Update versions for feature branch</featureStartMessage>
