@@ -11,12 +11,16 @@
   </parent>
   <groupId>com.backbase</groupId>
   <artifactId>github-actions-demo</artifactId>
-  <version>1.0.40</version>
+  <version>1.0.42</version>
   <name>github-actions-demo</name>
   <description>github-actions-demo</description>
+  <packaging>pom</packaging>
   <properties>
     <java.version>11</java.version>
   </properties>
+  <modules>
+    <module>module1</module>
+  </modules>
   <dependencies>
     <dependency>
       <groupId>org.springframework.boot</groupId>
