@@ -40,8 +40,8 @@ jobs:
           draft: false
           prerelease: false
 
-      - name: Merge master into develop branch
-        uses: thomaseizinger/create-pull-request@1.0.0
+      - name: Merge release into develop branch
+        uses: thomaseizinger/create-pull-request@4.0.3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
