@@ -41,7 +41,7 @@ jobs:
           prerelease: false
 
       - name: Merge release into develop branch
-        uses: thomaseizinger/create-pull-request@v1
+        uses: thomaseizinger/create-pull-request@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
