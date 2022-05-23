@@ -41,14 +41,13 @@ jobs:
           prerelease: false
 
       - name: Merge release into develop branch
-        uses: peter-evans/create-pull-request@v4
+        uses: thomaseizinger/create-pull-request@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           head: ${{ github.event.pull_request.head.ref }}
           base: develop
           title: Merge master into dev branch
-          delete-branch: true
           body: |
             This PR merges the master branch back into dev.
             This happens to ensure that the updates that happend on the release branch, i.e. CHANGELOG and manifest updates are also present on the dev branch.
