@@ -40,14 +40,19 @@ jobs:
           draft: false
           prerelease: false
 
-      - name: Merge master into dev branch
+      - name: Merge master into develop branch
         uses: thomaseizinger/create-pull-request@1.0.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          head: master
+          head: ${{ github.event.pull_request.head.ref }}
           base: develop
           title: Merge master into dev branch
+          delete-branch: true
           body: |
             This PR merges the master branch back into dev.
             This happens to ensure that the updates that happend on the release branch, i.e. CHANGELOG and manifest updates are also present on the dev branch.
+
+#      - name: Update POM Version for develop branch
+#        if: "contains(github.ref, 'develop')"
+#        run: mvn versions:set versions:update-child-modules -DnewVersion=${NEW_VERSION} -DprocessAllModules -DgenerateBackupPoms=false
