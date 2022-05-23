@@ -11,12 +11,12 @@
   </parent>
   <groupId>com.backbase</groupId>
   <artifactId>github-actions-demo</artifactId>
-  <version>1.0.11-build3</version>
+  <version>${revision}${changelist}</version>
   <name>github-actions-demo</name>
   <description>github-actions-demo</description>
   <properties>
     <java.version>11</java.version>
-    <revision>1.0.12-SNAPSHOT</revision>
+    <revision>1.0.12</revision>
     <changelist>-build1</changelist>
   </properties>
   <dependencies>
@@ -52,7 +52,7 @@
             <supportBranchPrefix>support/</supportBranchPrefix>
             <origin>origin</origin>
           </gitFlowConfig>
-          <pushRemote>true</pushRemote>
+          <pushRemote>false</pushRemote>
           <versionProperty>revision</versionProperty>
           <useSnapshotInRelease>false</useSnapshotInRelease>
 <!--          <developmentVersion>1.0.11-build1</developmentVersion>-->
