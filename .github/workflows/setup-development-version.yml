@@ -31,7 +31,7 @@ jobs:
     - name: Setup development version
       if: "contains(github.ref, 'develop')"
       run: |
-        NEW_VERSION="$((MAJOR)).$((MINOR)).$((PATCH+1))-build1)"
+        NEW_VERSION="$((MAJOR)).$((MINOR)).$((PATCH+1))-build1"
         echo "NEW_VERSION=${NEW_VERSION}" >> $GITHUB_ENV
     - name: Update POM Version
       if: "contains(github.ref, 'develop')"
