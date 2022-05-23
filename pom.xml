@@ -11,13 +11,13 @@
   </parent>
   <groupId>com.backbase</groupId>
   <artifactId>github-actions-demo</artifactId>
-  <version>1.0.8-build1</version>
+  <version>${revision}${changelist}</version>
   <name>github-actions-demo</name>
   <description>github-actions-demo</description>
   <properties>
     <java.version>11</java.version>
-<!--    <revision>1.0.4</revision>-->
-    <changelist></changelist>
+    <revision>1.0.9</revision>
+    <changelist>-build1</changelist>
   </properties>
   <dependencies>
     <dependency>
