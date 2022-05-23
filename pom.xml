@@ -11,12 +11,12 @@
   </parent>
   <groupId>com.backbase</groupId>
   <artifactId>github-actions-demo</artifactId>
-  <version>1.0.11-build3</version>
+  <version>${revision}${changelist}</version>
   <name>github-actions-demo</name>
   <description>github-actions-demo</description>
   <properties>
     <java.version>11</java.version>
-    <revision>1.0.11-build1</revision>
+    <revision>1.0.11</revision>
     <changelist>-build1</changelist>
   </properties>
   <dependencies>
@@ -59,7 +59,7 @@
           <skipUpdateVersion>true</skipUpdateVersion>
           <commitDevelopmentVersionAtStart>true</commitDevelopmentVersionAtStart>
           <digitsOnlyDevVersion>true</digitsOnlyDevVersion>
-          <useSnapshotInRelease>true</useSnapshotInRelease>
+          <useSnapshotInRelease>false</useSnapshotInRelease>
           <preReleaseGoals>verify</preReleaseGoals>
           <postReleaseGoals>verify</postReleaseGoals>
         </configuration>
