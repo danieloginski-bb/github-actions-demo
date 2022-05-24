@@ -8,10 +8,7 @@ jobs:
   bump-development-version:
     if: "!contains(github.event.head_commit.message, '[skip bump]') && !contains(github.event.head_commit.message, 'nobump/')"
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        java: [11]
-    name: Build Identity Authenticator with ${{ matrix.java }}
+    name: Bump identity version
     steps:
       - uses: actions/checkout@v3
       - name: Get project version from POM
