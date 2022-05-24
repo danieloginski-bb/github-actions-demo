@@ -6,11 +6,11 @@
   <parent>
     <groupId>com.backbase</groupId>
     <artifactId>github-actions-demo</artifactId>
-    <version>4.0.0-build1</version>
+    <version>4.0.1</version>
   </parent>
 
   <artifactId>module1</artifactId>
-  <version>4.0.0-build1</version>
+  <version>4.0.1</version>
   <name>module1</name>
   <description>module1</description>
   <properties>
