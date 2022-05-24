@@ -13,6 +13,7 @@ jobs:
         java: [11]
     name: Build Identity Authenticator with ${{ matrix.java }}
     steps:
+      - uses: actions/checkout@v3
       - name: Get project version from POM
         if: "contains(github.ref, 'develop')"
         run: |
