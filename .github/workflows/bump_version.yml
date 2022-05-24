@@ -21,7 +21,7 @@ jobs:
           echo "PATCH=${VERSION[2]}" >> $GITHUB_ENV 
 
       - name: Setup PR version
-        if: "contains(github.ref, 'develop')"
+        if: "contains(github.ref, 'develop') && !contains(github.event.head_commit.message, 'bump major') && !contains(github.event.head_commit.message, 'bump minor')"
         run: |
           NEW_VERSION="$((MAJOR)).$((MINOR)).$((PATCH+1))"
           echo "NEW_VERSION=${NEW_VERSION}" >> $GITHUB_ENV
