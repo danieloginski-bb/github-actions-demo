@@ -10,7 +10,7 @@
   </parent>
 
   <artifactId>module1</artifactId>
-  <version>3.0.1-build1</version>
+  <version>3.0.1</version>
   <name>module1</name>
   <description>module1</description>
   <properties>
